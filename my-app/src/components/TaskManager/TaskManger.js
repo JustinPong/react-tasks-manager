@@ -1,7 +1,16 @@
 import React from 'react';
 // import './Addtask.css';
 
-class AddTask extends React.Component {
+class TaskManager extends React.Component {
+    constructor(props) {
+        super(props);
+        this.task = [];
+    }
+
+    addTask(name, description, assignedTo, dueDate, status) {
+        
+    }
+
     render() {
         return (
             <div className="new-task col">
@@ -35,4 +44,4 @@ class AddTask extends React.Component {
 }
 
 
-export default AddTask;
+export default TaskManager;

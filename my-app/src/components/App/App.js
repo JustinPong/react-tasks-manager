@@ -1,6 +1,7 @@
 import './App.css';
-import AddTask from'../../components/AddTask/AddTask';
+import TaskManager from'../TaskManager/TaskManger';
 import TaskList from '../../components/TaskList/TaskList';
+import Card from '../../components/Card/Card';
 import React from 'react';
 
 
@@ -10,8 +11,9 @@ class App extends React.Component {
     return (
       <div className="container">
         <h1 className="title">Task List</h1>
-        <AddTask />
+        <TaskManager />
         <TaskList />
+        {/* <Card /> */}
       </div>
     );
   }
