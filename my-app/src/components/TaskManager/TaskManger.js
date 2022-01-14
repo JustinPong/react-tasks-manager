@@ -1,10 +1,13 @@
 import React from 'react';
-// import './Addtask.css';
+import { Button } from 'react-bootstrap'
+import './TaskManager.css';
+
+
 
 class TaskManager extends React.Component {
     constructor(props) {
         super(props);
-        this.task = [];
+        this.state = [];
     }
 
     addTask(name, description, assignedTo, dueDate, status) {
@@ -24,22 +27,22 @@ class TaskManager extends React.Component {
                         <label for="description-input">Description</label>
                         <textarea className="col-12" type="text"></textarea>
                     </div>
-                    <div className="row">
-                        <div className="form-group col-6">
+                    <div className="row-form row">
+                        <div className="form-group2 col-6">
                             <label for="assignedTo-input">Assigned To</label>
                             <input className="col-12" id="assignedTo-input" />
                         </div>
-                        <div className="form-group col-6">
+                        <div className="form-group2 col-6">
                             <label for="date-input">Date</label>
                             <input className="col-12" type="date" id="date-input" />
                         </div>
                     </div>
-                    <div>
-                        <button className="btn-warning col-12">Add Task</button>
+                    <div className="add-task-btn">
+                        <Button className="btn-warning col-12">Add Task</Button>
                     </div>
                 </form>
             </div>
-        );
+        )
     }
 }
 

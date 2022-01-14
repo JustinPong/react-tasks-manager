@@ -1,4 +1,3 @@
-import './App.css';
 import TaskManager from'../TaskManager/TaskManger';
 import TaskList from '../../components/TaskList/TaskList';
 import Card from '../../components/Card/Card';
