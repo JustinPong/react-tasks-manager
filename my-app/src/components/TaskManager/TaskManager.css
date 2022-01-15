@@ -1,33 +1,40 @@
-.img { 
+.new-task{
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    border: 2px solid black;
+    background-color: #96D4D4;
+  }
+  
+  .img { 
     width:80%; 
     z-index: 0;
   } 
      
-.text-over-img { 
+  .text-over-img { 
     z-index:1;
     font-size: 2em;
     text-align: center;
     }
-
-.btn-default {
+  
+  .btn-default {
     display: block;
     margin: 0px auto;
-}
-
-.new-task-title {
+  }
+  
+  .new-task-title {
     text-align: center;
-}
-
-.form-group {
+  }
+  
+  .form-group {
     margin: 10px 20px;
-}
-
-.row-form {
-    justify-content: space-around;
-    padding: 10px 20px;
-    margin: 10px 0;
-}
-
-.add-task-btn {
+  }
+  
+  .row-form {
+    margin: 7px;
+  }
+  
+  .add-task-btn {
     margin: 20px;
-}
+  }
