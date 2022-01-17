@@ -1,15 +1,15 @@
 import React, { useDebugValue } from 'react';
 import { Button } from 'react-bootstrap'
 import './TaskManager.css';
-import shortid from 'shortid';
+import shortid from 'shortid'
 
 
 class TaskManager extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            text: ""
-        };
+        this.state = {};
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange = (event) => {
@@ -22,13 +22,15 @@ class TaskManager extends React.Component {
         event.preventDefault();
         this.props.onSubmit({
             id: shortid.generate(),
-            text: this.state.text,
-            complete: false
+            name: this.state.name,
+            isChecked: false
         });
         this.setState({
-            text: ""
+            name: ""
         });
     }
+
+
 
     render() {
         return (
@@ -37,7 +39,7 @@ class TaskManager extends React.Component {
                 <form onSubmit={this.handleSubmit} id="new-task-form">
                     <div className="form-group">
                         <label for="name-input">Name</label>
-                        <input name="text" value={this.state.text} onChange={this.handleChange} className="col-12" id="name-input" />
+                        <input name="name" value={this.state.name} onChange={this.handleChange} className="col-12" id="name-input" />
                     </div>
                     <div className="form-group">
                         <label for="description-input">Description</label>

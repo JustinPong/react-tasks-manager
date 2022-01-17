@@ -5,25 +5,27 @@ import React from 'react';
 
 
 class App extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
-      todos: []
-  };
+      items: []
+    };
   }
 
-  addTodo = (todo) => {
-      this.setState({
-          todos: [todo, ...this.state.todos]
-      });
+  addItem = (item) => {
+    this.setState({
+      items: [item, ...this.state.items]
+    });
   }
 
   render() {
     return (
       <div className="container">
         <h1 className="title">Task List</h1>
-        <TaskManager onSubmit={this.addTodo} />
-        <TaskList todos={this.state.todos} onDelete={this.handleChangeDelete} />
+        <TaskManager onSubmit={this.addItem} />
+        <TaskList items={this.state.items} />
+        {console.log(this.state.items)}
       </div>
     );
   }
