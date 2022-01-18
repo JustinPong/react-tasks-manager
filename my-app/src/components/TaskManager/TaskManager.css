@@ -38,3 +38,14 @@
   .add-task-btn {
     margin: 20px;
   }
+
+  .error{
+    border: 5px red solid;
+  }
+
+  .errorMessage{
+    margin: 0;
+    margin-bottom: 20px;
+    width: 100%;
+    color: red;
+  }
