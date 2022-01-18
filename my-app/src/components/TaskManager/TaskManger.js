@@ -1,7 +1,7 @@
 import React, { useDebugValue } from 'react';
 import { Button } from 'react-bootstrap'
 import './TaskManager.css';
-import shortid from 'shortid'
+import shortid from 'shortid';
 
 
 class TaskManager extends React.Component {
@@ -18,17 +18,27 @@ class TaskManager extends React.Component {
         })
     }
 
-    handleSubmit= (event) => {
+    handleSubmit = (event) => {
         event.preventDefault();
         this.props.onSubmit({
             id: shortid.generate(),
             name: this.state.name,
-            isChecked: false
+            description: this.state.description,
+            assignedTo: this.state.assignedTo,
+            date: this.state.date,
+            isChecked: false,
         });
         this.setState({
-            name: ""
+            id: "",
+            name: "",
+            description: "",
+            assignedTo: "",
+            date: "",
+            error: true
         });
     }
+
+
 
 
 
@@ -39,20 +49,21 @@ class TaskManager extends React.Component {
                 <form onSubmit={this.handleSubmit} id="new-task-form">
                     <div className="form-group">
                         <label for="name-input">Name</label>
-                        <input name="name" value={this.state.name} onChange={this.handleChange} className="col-12" id="name-input" />
+                        <input id="yo" style={{ border: this.state.error ? '2px red solid' : '' }} name="name" value={this.state.name} onChange={this.handleChange} className="col-12" id="name-input" />
+
                     </div>
                     <div className="form-group">
                         <label for="description-input">Description</label>
-                        <textarea className="col-12" type="text"></textarea>
+                        <textarea name="description" value={this.state.description} onChange={this.handleChange} className="col-12" type="text"></textarea>
                     </div>
                     <div className="row-form row">
                         <div className="form-group2 col-6">
                             <label for="assignedTo-input">Assigned To</label>
-                            <input className="col-12" id="assignedTo-input" />
+                            <input name="assignedTo" value={this.state.assignedTo} onChange={this.handleChange} className="col-12" id="assignedTo-input" />
                         </div>
                         <div className="form-group2 col-6">
                             <label for="date-input">Date</label>
-                            <input className="col-12" type="date" id="date-input" />
+                            <input name="date" onChange={this.handleChange} className="col-12" type="date" id="date-input" />
                         </div>
                     </div>
                     <div className="add-task-btn">
