@@ -3,7 +3,6 @@ import TaskList from '../../components/TaskList/TaskList';
 import Item from '../../components/Item/Item';
 import React from 'react';
 
-
 class App extends React.Component {
 
   constructor(props) {

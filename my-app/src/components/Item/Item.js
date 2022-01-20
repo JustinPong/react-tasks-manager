@@ -3,7 +3,8 @@ import { ListGroup } from 'react-bootstrap';
 import { Button, Modal } from 'react-bootstrap';
 import './Item.css';
 import App from '../App/App';
-import TaskList from '../TaskManager/TaskManger'
+import TaskList from '../TaskManager/TaskManger';
+
 
 
 class Item extends React.Component {
@@ -18,14 +19,15 @@ class Item extends React.Component {
         }
     }
 
+    //To close the Modal window
     handleClose = () => {
         this.setState({ show: false })
     }
 
+    //To popout the Modal window
     handleShow = () => {
         this.setState({ show: true })
     }
-
 
     render() {
         return (
@@ -36,7 +38,6 @@ class Item extends React.Component {
                         <div style={{ textDecoration: this.props.item.isChecked ? 'line-through' : '' }}>
                             {this.props.item.name}
                         </div>
-                        {/* {this.props.item.assignedTo} */}
                         <Button variant="primary" style={{display: this.props.item.isChecked ? 'none' : 'block'}} onClick={this.handleShow} className="edit" >Edit</Button>
                         <Button style={{
                             display: this.props.item.isChecked ? 'block' : 'none'
@@ -44,28 +45,28 @@ class Item extends React.Component {
                     </ListGroup.Item>
                 </ListGroup>
                 <Modal show={this.state.show} onHide={this.handleClose} >
-                    <Modal.Header closeButton onClick={this.handleClose}>
+                    <Modal.Header closeButton>
                         <Modal.Title>Editing</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                 <form onSubmit={this.handleSubmit} id="new-task-form">
                     <div className="form-group">
-                        <label for="name-input">Name</label>
-                        <input id="yo" style={{ border: this.state.error ? '2px red solid' : '' }} name="name" value={this.props.item.name} onChange={this.handleChange} className="col-12" id="name-input" />
+                        <label htmlFor="name-input">Name</label>
+                        <input style={{ border: this.state.error ? '2px red solid' : '' }} name="name" value={this.props.item.name} className="col-12" id="name-input" />
 
                     </div>
                     <div className="form-group">
-                        <label for="description-input">Description</label>
-                        <textarea placeholder="Optional..." name="description" value={this.props.item.description} onChange={this.handleChange} className="col-12" type="text"></textarea>
+                        <label htmlFor="description-input">Description</label>
+                        <textarea placeholder="Optional..." name="description" value={this.props.item.description} className="col-12" type="text"></textarea>
                     </div>
                     <div className="row-form row">
                         <div className="form-group2 col-6">
-                            <label for="assignedTo-input">Assigned To</label>
-                            <input name="assignedTo" value={this.props.item.assignedTo} onChange={this.handleChange} className="col-12" id="assignedTo-input" />
+                            <label htmlFor="assignedTo-input">Assigned To</label>
+                            <input name="assignedTo" value={this.props.item.assignedTo} className="col-12" id="assignedTo-input" />
                         </div>
                         <div className="form-group2 col-6">
-                            <label for="date-input">Date</label>
-                            <input name="date" onChange={this.handleChange} className="col-12" type="date" id="date-input" />
+                            <label htmlFor="date-input">Date</label>
+                            <input name="date" className="col-12" type="date" id="date-input" />
                         </div>
                     </div>
                     <div className="add-task-btn">
