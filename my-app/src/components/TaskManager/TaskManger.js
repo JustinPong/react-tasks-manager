@@ -54,7 +54,7 @@ class TaskManager extends React.Component {
                     </div>
                     <div className="form-group">
                         <label for="description-input">Description</label>
-                        <textarea name="description" value={this.state.description} onChange={this.handleChange} className="col-12" type="text"></textarea>
+                        <textarea placeholder="Optional..." name="description" value={this.state.description} onChange={this.handleChange} className="col-12" type="text"></textarea>
                     </div>
                     <div className="row-form row">
                         <div className="form-group2 col-6">
