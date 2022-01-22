@@ -26,6 +26,7 @@ class TaskManager extends React.Component {
         this.setState({
             [event.target.name]: event.target.value
         })
+        console.log(typeof(this.state.date))
     }
 
     handleSubmit = (event) => {
@@ -63,7 +64,7 @@ class TaskManager extends React.Component {
                 name: "",
                 description: "",
                 assignedTo: "",
-                date: "",
+                date: '',
                 nameError: false,
                 descriptionError: false,
                 assignedToError: false
@@ -96,7 +97,7 @@ class TaskManager extends React.Component {
                         </div>
                         <div className="form-group2 col-6">
                             <label htmlFor="date-input">Date</label>
-                            <input name="date" onChange={this.handleChange} className="col-12" type="date" id="date-input" />
+                            <input name="date" value={this.state.date} onChange={this.handleChange} className="col-12" type="date" id="date-input" />
                         </div>
                     </div>
                     <div className="add-task-btn">
