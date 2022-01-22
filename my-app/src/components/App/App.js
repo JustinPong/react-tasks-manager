@@ -10,7 +10,10 @@ class App extends React.Component {
     this.state = {
       items: []
     };
-    this.removeList = this.removeList.bind(this);
+    this.handleRemove = this.handleRemove.bind(this);
+    this.addItem = this.addItem.bind(this);
+    this.toggleComplete = this.toggleComplete.bind(this);
+    
   }
 
   addItem = (item) => {
@@ -34,19 +37,25 @@ class App extends React.Component {
     })
   }
 
-  removeList = (id) => {
+  handleRemove = (id) => {
     const targetlist = [...this.state.items].filter(item => item.id !== id)
     this.setState({items: targetlist})
     // alert(this.props.items[1]);
-    // alert(this.props.item);
+    // console.log(targetlist);
   }
+
+  handleUpdate = (id) => {
+    const targetlist = [...this.state.items].find(item => item.id === id)
+    console.log(targetlist)
+    }
+
 
   render() {
     return (
       <div className="container">
         <h1 className="title">Task List</h1>
         <TaskManager onSubmit={this.addItem} />
-        <TaskList removeList={this.removeList} toggleComplete={this.toggleComplete} items={this.state.items} />
+        <TaskList handleRemove={this.handleRemove} handleUpdate={this.handleUpdate} toggleComplete={this.toggleComplete} items={this.state.items} />
       </div>
     );
   }
