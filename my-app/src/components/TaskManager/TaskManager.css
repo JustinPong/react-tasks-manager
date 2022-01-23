@@ -44,8 +44,9 @@
   }
 
   .errorMessage{
-    margin: 0;
-    margin-bottom: 20px;
-    width: 100%;
     color: red;
+  }
+
+  .flex{
+    display: flex;
   }
