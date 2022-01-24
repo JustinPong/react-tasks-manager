@@ -82,11 +82,11 @@ class Item extends React.Component {
         const newAssignedTo = this.state.assignedTo;
         const newDate = this.state.date;
         this.setState({
+            show: false,
             newName: newName,
             newDescription: newDescription,
             newAssignedTo: newAssignedTo,
-            newDate: newDate,
-            show: false
+            newDate: newDate
         })
     };
 
@@ -131,7 +131,7 @@ class Item extends React.Component {
                                 </div>
                                 <div className="form-group2 col-6">
                                     <label htmlFor="date-input">Date</label>
-                                    <input value={this.state.date} onChange={this.dateChange} name="date" className="col-12" type="date" id="date-input" />
+                                    <input value={this.state.newDate} onChange={this.dateChange} name="date" className="col-12" type="date" id="date-input" />
                                 </div>
                             </div>
                             <div className="add-task-btn">
