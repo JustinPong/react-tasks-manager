@@ -5,7 +5,7 @@ import './Item.css';
 import App from '../App/App';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import { Modal } from 'react-bootstrap'
+// import { Modal } from 'react-bootstrap';
 
 class Item extends React.Component {
     constructor(props) {
