@@ -2,8 +2,11 @@ import TaskManager from '../TaskManager/TaskManger';
 import TaskList from '../../components/TaskList/TaskList';
 import Item from '../../components/Item/Item';
 import React from 'react';
+import './App.css'
+import { BsMoonStarsFill } from "react-icons/bs";
 
 class App extends React.Component {
+    
 
   constructor(props) {
     super(props);
@@ -53,10 +56,12 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <h1 className="title">Task List</h1>
+      <BsMoonStarsFill/>
+        <h1 className="title">Welcome back !</h1>
         <TaskManager onSubmit={this.addItem} />
         <TaskList handleRemove={this.handleRemove} handleUpdate={this.handleUpdate} toggleComplete={this.toggleComplete} items={this.state.items} />
       </div>
+      
     );
   }
 }
