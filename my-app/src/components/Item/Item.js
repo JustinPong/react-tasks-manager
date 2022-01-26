@@ -107,26 +107,26 @@ class Item extends React.Component {
                     </ListGroup.Item>
                 </ListGroup>
                 <Modal show={this.state.show} onHide={this.handleClose} >
-                    <Modal.Header closeButton>
-                        <Modal.Title>Editing</Modal.Title>
+                    <Modal.Header style={{backgroundColor: this.props.isDark ? 'rgb(29,29,29)' : 'white'}} closeButton>
+                        <Modal.Title style={{color: this.props.isDark ? 'white' : 'black'}}>Editing</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>
+                    <Modal.Body style={{backgroundColor: this.props.isDark ? 'rgb(29,29,29)' : 'white'}}>
                         <form id="new-task-form">
                             <div className="form-group">
-                                <label htmlFor="name-input">Name</label>
+                                <label htmlFor="name-input" style={{color: this.props.isDark ? 'white' : 'black'}}>Name</label>
                                 <input style={{ border: this.state.error ? '2px red solid' : '' }} onChange={this.nameChange} name="name" value={this.state.newName} className="col-12" id="name-input" />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="description-input">Description</label>
+                                <label htmlFor="description-input" style={{color: this.props.isDark ? 'white' : 'black'}}>Description</label>
                                 <textarea name="description" onChange={this.descriptionChange} value={this.state.newDescription} className="col-12" type="text"></textarea>
                             </div>
                             <div className="row-form row">
                                 <div className="form-group2 col-6">
-                                    <label htmlFor="assignedTo-input">Assigned To</label>
+                                    <label htmlFor="assignedTo-input" style={{color: this.props.isDark ? 'white' : 'black'}}>Assigned To</label>
                                     <input name="assignedTo" value={this.state.newAssignedTo} onChange={this.assignedToChange} className="col-12" id="assignedTo-input" />
                                 </div>
                                 <div className="form-group2 col-6">
-                                    <label htmlFor="date-input">Date</label>
+                                    <label htmlFor="date-input" style={{color: this.props.isDark ? 'white' : 'black'}}>Date</label>
                                     <input value={this.state.newDate} onChange={this.dateChange} name="date" className="col-12" type="date" id="date-input" />
                                 </div>
                             </div>
@@ -134,7 +134,7 @@ class Item extends React.Component {
                             </div>
                         </form>
                     </Modal.Body>
-                    <Modal.Footer>
+                    <Modal.Footer style={{backgroundColor: this.props.isDark ? 'rgb(29,29,29)' : 'white'}}>
                         <Button variant="secondary" onClick={this.handleClose}>
                             Close
                         </Button>
