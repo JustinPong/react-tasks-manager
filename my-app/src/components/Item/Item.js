@@ -71,10 +71,6 @@ class Item extends React.Component {
         })
     }
 
-    // handleSubmit = () => {
-    //     this.setState({})
-    // }
-
     //To close the Modal window
     handleClose = () => {
         const newName = this.state.name;
@@ -99,9 +95,9 @@ class Item extends React.Component {
         return (
             <div myid={this.props.item.id} id="items" className="list-items">
                 <ListGroup className="task-table col-12">
-                    <ListGroup.Item className="task-table-row col-12">
+                    <ListGroup.Item className="task-table-row col-12" style={{backgroundColor: this.props.isDark ? 'rgb(29,29,29)' : 'white'}}>
                         <input onClick={this.props.toggleComplete} className="checkbox" type='checkbox'></input>
-                        <div style={{ textDecoration: this.props.item.isChecked ? 'line-through' : '' }}>
+                        <div style={{ textDecoration: this.props.item.isChecked ? 'line-through' : '' }, {color: this.props.isDark ? 'white' : 'black'}}>
                             {this.state.name}
                         </div>
                         <Button variant="primary" style={{ display: this.props.item.isChecked ? 'none' : 'block' }} onClick={this.handleShow} className="edit" >Edit</Button>
@@ -153,5 +149,3 @@ class Item extends React.Component {
 }
 
 export default Item;
-
-// 123

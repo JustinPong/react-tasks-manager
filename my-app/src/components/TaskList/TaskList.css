@@ -10,4 +10,11 @@
     background-color: rgb(254, 250, 192);
   }
 
-  /* 123 */
+  .table-top{
+    display: flex;
+  }
+
+  .top-bar{
+    justify-content: space-between; 
+    height: 50px;
+  }

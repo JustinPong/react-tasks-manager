@@ -11,7 +11,15 @@
     width:80%; 
     z-index: 0;
   } 
-     
+
+  .dark-mode {
+    margin: auto 0 auto auto;
+}
+
+  .background{
+    height: 100vh;
+  }
+
   .text-over-img { 
     z-index:1;
     font-size: 2em;
@@ -50,5 +58,3 @@
   .flex{
     display: flex;
   }
-
- /* 123 */

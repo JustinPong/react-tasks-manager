@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap'
 import './TaskManager.css';
 import shortid from 'shortid';
 
-123
+
 class TaskManager extends React.Component {
     constructor(props) {
         super(props);
@@ -108,7 +108,7 @@ class TaskManager extends React.Component {
                         </div>
                     </div>
                     <div className="add-task-btn">
-                        <Button onClick={this.handleSubmit} className="btn-warning col-12">Add Task</Button>
+                        <Button type="submit" className="btn-warning col-12">Add Task</Button>
                     </div>
                 </form>
             </div>

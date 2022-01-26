@@ -20,8 +20,8 @@
 
 .edit {
     border: 0;
-    background-color: blue;
-    color: #fff;
+    background-color: rgb(13,110,253);
+    color: white;
     padding: 10px;
     margin-left: auto;
     width: 80px;
@@ -39,4 +39,10 @@ h1{
     text-align: center;
 }
 
-/* 123 */
+a{
+    color: inherit;
+}
+
+a:hover {
+    color: inherit;
+}
