@@ -2,21 +2,15 @@ import TaskManager from '../TaskManager/TaskManger';
 import TaskList from '../../components/TaskList/TaskList';
 import Item from '../../components/Item/Item';
 import React from 'react';
-import './App.css'
-import { BsMoonStarsFill } from "react-icons/bs";
 
 class App extends React.Component {
-    
 
   constructor(props) {
     super(props);
     this.state = {
       items: []
     };
-    this.handleRemove = this.handleRemove.bind(this);
-    this.addItem = this.addItem.bind(this);
-    this.toggleComplete = this.toggleComplete.bind(this);
-    
+    this.removeList = this.removeList.bind(this);
   }
 
   addItem = (item) => {
@@ -40,33 +34,23 @@ class App extends React.Component {
     })
   }
 
-  handleRemove = (id) => {
+  removeList = (id) => {
     const targetlist = [...this.state.items].filter(item => item.id !== id)
     this.setState({items: targetlist})
     // alert(this.props.items[1]);
-    // console.log(targetlist);
+    // alert(this.props.item);
   }
-
-  handleUpdate = (id) => {
-    const targetlist = [...this.state.items].find(item => item.id === id)
-    console.log(targetlist)
-    }
-
 
   render() {
     return (
       <div className="container">
-      <BsMoonStarsFill/>
-        <h1 className="title">Welcome back !</h1>
+        <h1 className="title">Task List</h1>
         <TaskManager onSubmit={this.addItem} />
-        <TaskList handleRemove={this.handleRemove} handleUpdate={this.handleUpdate} toggleComplete={this.toggleComplete} items={this.state.items} />
+        <TaskList removeList={this.removeList} toggleComplete={this.toggleComplete} items={this.state.items} />
       </div>
-      
     );
   }
 }
 
 
 export default App;
-
-// 123
