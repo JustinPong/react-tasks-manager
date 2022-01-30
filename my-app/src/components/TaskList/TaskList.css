@@ -1,19 +1,13 @@
-body {
-    background-image: url("https://wallpaperaccess.com/full/2058622.jpg");
-}
-  
-  
-  
-  .table-title {
+.table-title {
     text-align: center;
     color: rgb(1, 1, 1);
     font-size: 3rem;
     letter-spacing: 1rem;
+    
   }
   
   .to-do-list {
     color:rgb(137, 167, 228);
-    background:rgba(64, 155, 230, 0.13);
     margin: 30px auto;
     border: none;
     height: 70px;

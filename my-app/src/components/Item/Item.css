@@ -1,4 +1,3 @@
-
 .task-table-row {
     width: 100%;
     height: 70px;
@@ -6,106 +5,43 @@
     margin-bottom: 10px;
     padding-bottom: 10px;
     display: flex;
+    /* justify-content: space-around; */
     align-items: center;
   }
   
-  .remove {
-      border: 0;
-      background: transparent;
-      transition: border-color 0.2s;
-      background-color: red;
-      width: 10rem;
-      height: 3rem;
-      font-size: 1.2rem;
-    }
-
-    .remove:hover {
-        color: white;
-        background: rgb(88, 184, 85);
-    }
-    
-    .box {
-        width: 40%;
-        background: rgb(124, 214, 192);
-        padding: 10px;
-        border: 0;
-        background: transparent;
-        transition: border-color 0.2s;
-        color:black
-      }
-
-.button {
-    width: 10rem;
-    height: 3rem;
-    font-size: 1.2rem;
-    padding: 10px;
-    color: rgb(15, 22, 15);
-    border: 0;
-    border-radius: 20px/50px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: border-color 0.2s;
-    background: transparent;
-    background-color: rgb(188, 243, 79);
-    margin: 10rem;
-  }
-
-  .button:hover {
-    color:#f7fa52;
-    background: darkolivegreen;
-  }
-  
-  .overlay {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.7);
-    transition: opacity 500ms;
-    visibility: hidden;
-    opacity: 0;
-  }
-  .overlay:target {
-    visibility: visible;
-    opacity: 1;
-  }
-  
-  .popup {
-    margin: 70px auto;
-    padding: 20px;
-    background: rgb(223, 224, 207);
-    border-radius: 5px;
-    width: 30%;
+.remove {
     position: relative;
-    transition: all 5s ease-in-out;
-    width: 1000px;
-    height: 450px;
-  }
-  
-  .popup h2 {
-    margin-top: 0;
-    color: #333;
-    font-family: Tahoma, Arial, sans-serif;
-  }
+    width: 110px;
+    margin: 20px;
+    font-size: 25px;
+    height: 45px;
+    border: none;
+    color: rgb(11, 11, 14);
+    background-color: rgb(238, 118, 130);
+    margin-left: auto;
+}
 
-  .popup .close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    transition: all 200ms;
-    font-size: 30px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #333;
-  }
+.list-items {
+    margin: 0 20px;
+}
+
+.checkbox {
+    margin-right: 50px;
+}
+
+h1{
+    text-align: center;
+}
 
 .edit {
     position: relative;
+    width: 110px;
     margin: 20px;
     font-size: 25px;
     height: 45px;
     border: none;
     color: rgb(11, 11, 14);
     background-color: rgb(207, 187, 238);
+    margin-left: auto;
 }
+

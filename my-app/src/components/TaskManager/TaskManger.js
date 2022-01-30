@@ -3,102 +3,131 @@ import { useLocalStorage } from "../useLocalStorage";
 import { Button } from 'react-bootstrap'
 import './TaskManager.css';
 import shortid from 'shortid';
+import { API_GET_TASK } from '../../global/constants';
+
+async function fetchTask(setTask) {
+    const res = await fetch(API_GET_TASK)
+    const { task } = await res.json()
+    return task
+}
 
 
-function TaskManager()  {
+function TaskManager(props) {
 
-        const [task, setTask] = useState({
-            id: shortid.generate(),
-            name: '',
-            description: '',
-            assignedTo: '',
-            date: '',
-            isChecked: false,
-            nameError: false,
-            descriptionError: false,
-            assignedToError: false
-        })
-    
-    const handleChange = ({event}) => {
-        const {name, value} = event
-        setTask(prevTask => ( {
+    const [task, setTask] = useState({
+        id: shortid.generate(),
+        name: '',
+        description: '',
+        assignedTo: '',
+        date: '',
+        isChecked: false,
+        nameError: false,
+        descriptionError: false,
+        assignedToError: false
+    })
+
+    useEffect(() => {
+        fetchTask(setTask)
+    }, [])
+
+
+    //system past event into event handling function as first input, 
+    //first input= first argument
+    //destructing method
+    //const (target) = event 
+
+
+    const handleChange = ({ target }) => {
+        // alert(target.name);
+        const { name, value } = target;
+        setTask(prevTask => ({
             ...prevTask,
-            [name]:value,
+            [name]: value,
         }
         )
         )
     }
 
-    
-    const handleSubmit = (event) => {                                            
+
+    const handleSubmit = (event) => {
         if (task.name === '' || task.description === '' || task.assignedTo === '') {
-            if (task.name === '') {                                   
+            if (task.name === '') {
             } else {
-                ( task.nameError= false)
+                (task.nameError = false)
             }
             if (task.description === '') {
-                (task.descriptionError= true)
+                (task.descriptionError = true)
             } else {
-                (task.descriptionError= false)
+                (task.descriptionError = false)
             }
             if (task.assignedTo === '') {
-                ( task.assignedToError= true)
+                (task.assignedToError = true)
             } else {
-                ( task.assignedToError= false)
+                (task.assignedToError = false)
             }
         } else {
-                const {name, value} = event
-                // id: shortid.generate(),
-                (task.name= name)
-                (task.description= task.description)
-                (task.assignedTo= task.assignedTo)
-                (task.date= task.date)
-                (task.isChecked= false)
-                (task.nameError= false)
-                (task.descriptionError= false)
-                (task.assignedToError= false)
-            
-            ({
-                id: "",
-                name: "",
-                description: "",
-                assignedTo: "",
-                date: "",
+            // const {name, value} = target;
+            props.onSubmit({
+                id: shortid.generate(),
+                name: task.name,
+                description: task.description,
+                assignedTo: task.assignedTo,
+                date: task.date,
+                isChecked: false,
                 nameError: false,
                 descriptionError: false,
                 assignedToError: false
-            });
+            })
+                // id: shortid.generate(),
+                // (task.name= name)
+                // (task.description= task.description)
+                // (task.assignedTo= task.assignedTo)
+                // (task.date= task.date)
+                // (task.isChecked= false)
+                // (task.nameError= false)
+                // (task.descriptionError= false)
+                // (task.assignedToError= false)
+                setTask({
+                    id: "",
+                    name: "",
+                    description: "",
+                    assignedTo: "",
+                    date: "",
+                    nameError: false,
+                    descriptionError: false,
+                    assignedToError: false
+                });
         }
     }
-        return (
-            <div className="new-task col">
-                <h2 className="new-task-title">New Task</h2>
-                <form onSubmit={handleSubmit} id="new-task-form">
-                    <div className="form-group">
-                        <label htmlFor="name-input">Name</label>
-                        <input style={{ border: task.nameError ? '2px red solid' : '' }} name="name" value={task.name} onChange={handleChange} className="col-12" id="name-input"/>
+    return (
+        <div className="new-task col">
+            <h2 className="new-task-title">New Task</h2>
+            <form onSubmit={handleSubmit} id="new-task-form">
+                <div className="form-group">
+                    <label htmlFor="name-input">Name</label>
+                    <input style={{ border: task.nameError ? '2px red solid' : '' }} name="name" value={task.name} onChange={handleChange} className="col-12" id="name-input" />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="description-input1">Description</label>
+                    <textarea style={{ border: task.descriptionError ? '2px red solid' : '' }} name="description" value={task.description} onChange={handleChange} className="col-12" type="text"></textarea>
+                </div>
+                <div className="row-form row">
+                    <div className="form-group2 col-6">
+                        <label htmlFor="assignedTo-input">Assigned To</label>
+                        <input style={{ border: task.assignedToError ? '2px red solid' : '' }} name="assignedTo" value={task.assignedTo} onChange={handleChange} className="col-12" id="assignedTo-input" />
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="description-input1">Description</label>
-                        <textarea style={{ border: task.descriptionError ? '2px red solid' : '' }} name="description" value={task.description} onChange={handleChange} className="col-12" type="text"></textarea>
+                    <div className="form-group2 col-6">
+                        <label htmlFor="date-input">Date</label>
+                        <input name="date" onChange={handleChange} className="col-12" type="date" id="date-input" />
                     </div>
-                    <div className="row-form row">
-                        <div className="form-group2 col-6">
-                            <label htmlFor="assignedTo-input">Assigned To</label>
-                            <input style={{ border: task.assignedToError ? '2px red solid' : '' }} name="assignedTo" value={task.assignedTo} onChange={handleChange} className="col-12" id="assignedTo-input" />
-                        </div>
-                        <div className="form-group2 col-6">
-                            <label htmlFor="date-input">Date</label>
-                            <input name="date" onChange={handleChange} className="col-12" type="date" id="date-input" />
-                        </div>
-                    </div>
-                    <div className="add-task-btn">
-                        <Button onClick={handleSubmit} className="btn-warning col-12">Add Task</Button>
-                    </div>
-                </form>
-            </div>
-        )
-    
-        }
+                </div>
+                <div className="add-task-btn">
+                    <Button onClick={handleSubmit} className="btn-warning col-12">Add Task</Button>
+                </div>
+            </form>
+        </div>
+    )
+
+}
 
 export default TaskManager;
