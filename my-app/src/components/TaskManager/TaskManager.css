@@ -1,6 +1,5 @@
   .new-task{
     color:rgb(14, 15, 15);
-    background:rgba(64, 155, 230, 0.13);
     border-radius: 10px;
     border: none;
     box-shadow: rgba(159, 159, 179, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgb(20, 20, 20) 0px -2px 6px 0px inset;
@@ -69,7 +68,7 @@
     border: none;
     box-shadow: rgba(159, 159, 179, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgb(20, 20, 20) 0px -2px 6px 0px inset; 
     font-size: 1.3rem; 
-}
+  }
   
   .row-form {
     margin: 7px;
@@ -103,4 +102,12 @@
 label {
     font-size: 25px;
     letter-spacing: .3rem;
+}
+.modal-header,
+.modal-body,
+.modal-footer
+{
+    background: linear-gradient(90deg, rgba(206,215,237,1) 0%, rgba(169,223,228,1) 0%, rgba(205,224,245,1) 0%, rgba(189,217,233,1) 23%, rgba(219,212,242,1) 38%, rgba(214,231,249,1) 58%, rgba(219,218,232,1) 100%);
+    border: none;
+    box-shadow: rgba(159, 159, 179, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgb(20, 20, 20) 0px -2px 6px 0px inset;
 }
