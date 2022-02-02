@@ -14,7 +14,7 @@ async function fetchTask(setTask) {
 
 function TaskManager(props) {
 
-    const [task, setTask] = useState({
+    const [task, setTask] = useLocalStorage({
         id: shortid.generate(),
         name: '',
         description: '',

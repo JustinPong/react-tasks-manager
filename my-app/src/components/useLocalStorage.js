@@ -1,21 +1,21 @@
 import { useState, useEffect } from "react";
 
-function getStorageValue(key, defaultValue) {
+function getStorageValue(task, setTask) {
   // getting stored value
-  const saved = localStorage.getItem(key);
+  const saved = localStorage.getItem(task);
   const initial = JSON.parse(saved);
-  return initial || defaultValue;
+  return initial || setTask;
 }
 
-export const useLocalStorage = (key, defaultValue) => {
+export const useLocalStorage = (task, setTask) => {
   const [value, setValue] = useState(() => {
-    return getStorageValue(key, defaultValue);
+    return getStorageValue(task, setTask);
   });
 
   useEffect(() => {
     // storing input name
-    localStorage.setItem(key, JSON.stringify(value));
-  }, [key, value]);
+    localStorage.setItem(task, JSON.stringify(value));
+  }, [task, value]);
 
   return [value, setValue];
 };
