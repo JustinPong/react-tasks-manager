@@ -5,6 +5,7 @@ import { BsFillMoonFill, BsFillSunFill } from 'react-icons/bs';
 import Src from '../../index';
 import './App.css';
 
+
 class App extends React.Component {
 
   constructor(props) {
@@ -22,6 +23,8 @@ class App extends React.Component {
     });
   }
 
+  
+
   toggleComplete = (id) => {
     this.setState({
       items: this.state.items.map(item => {
@@ -29,7 +32,7 @@ class App extends React.Component {
           return {
             ...item,
             isChecked: !item.isChecked,
-          };
+          }
         } else {
           return item;
         }
@@ -61,15 +64,15 @@ class App extends React.Component {
       <div className="background" style={{ backgroundColor: this.state.isDark ? 'rgb(21,21,21)' : 'white' }} >
         <div className="container">
           <div className="top-bar" style={{ display: 'flex' }}>
-            <h1 className="title" style={{ color: this.state.isDark ? 'white' : 'black' }}>Welcome Back</h1>
+            <h1 className="title" style={{ color: this.state.isDark ? 'white' : 'black' }}>Welcome Back !</h1>
             {/* {!this.state.isDark && <a onClick={this.handleDark} href="#" className="dark-mode">
               <BsFillMoonFill />
-            </a>} */}
-            {/* {this.state.isDark && <a onClick={this.handleWhite} href="#" className="dark-mode">
+            </a>}
+            {this.state.isDark && <a onClick={this.handleWhite} href="#" className="dark-mode">
               <BsFillSunFill style={{ color: 'white' }} />
             </a>} */}
           </div>
-          <TaskManager isDark={this.state.isDark} onSubmit={this.addItem} />
+          <TaskManager items={this.state.items} isDark={this.state.isDark} onSubmit={this.addItem} />
           <TaskList isDark={this.state.isDark} handleRemove={this.handleRemove} handleUpdate={this.handleUpdate} toggleComplete={this.toggleComplete} items={this.state.items} />
         </div>
       </div>

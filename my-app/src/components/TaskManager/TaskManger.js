@@ -14,7 +14,7 @@ async function fetchTask(setTask) {
 
 function TaskManager(props) {
 
-    const [task, setTask] = useLocalStorage({
+    const [task, setTask] = useState({
         id: shortid.generate(),
         name: '',
         description: '',
@@ -52,21 +52,21 @@ function TaskManager(props) {
     const handleSubmit = (event) => {
         if (task.name === '' || task.description === '' || task.assignedTo === '') {
             if (task.name === '') {
+                setTask({nameError: true})
             } else {
-                (task.nameError = false)
+                setTask({nameError: false})
             }
             if (task.description === '') {
-                (task.descriptionError = true)
+               setTask({descriptionError: true})
             } else {
-                (task.descriptionError = false)
+                setTask({descriptionError: false})
             }
             if (task.assignedTo === '') {
-                (task.assignedToError = true)
+                setTask({assignedToError: true})
             } else {
-                (task.assignedToError = false)
+                setTask({assignedToError: false})
             }
         } else {
-            // const {name, value} = target;
             props.onSubmit({
                 id: shortid.generate(),
                 name: task.name,
@@ -78,16 +78,7 @@ function TaskManager(props) {
                 descriptionError: false,
                 assignedToError: false
             })
-                // id: shortid.generate(),
-                // (task.name= name)
-                // (task.description= task.description)
-                // (task.assignedTo= task.assignedTo)
-                // (task.date= task.date)
-                // (task.isChecked= false)
-                // (task.nameError= false)
-                // (task.descriptionError= false)
-                // (task.assignedToError= false)
-                setTask({
+               setTask({
                     id: "",
                     name: "",
                     description: "",
@@ -105,16 +96,16 @@ function TaskManager(props) {
             <form onSubmit={handleSubmit} id="new-task-form">
                 <div className="form-group">
                     <label htmlFor="name-input">Name</label>
-                    <input style={{ border: task.nameError ? '2px red solid' : '' }} name="name" value={task.name} onChange={handleChange} className="col-12" id="name-input" />
+                    <input style={{ border: useLocalStorage.nameError ? '2px red solid' : '' }} name="name" value={task.name} onChange={handleChange} className="col-12" id="name-input" />
                 </div>
                 <div className="form-group">
                     <label htmlFor="description-input1">Description</label>
-                    <textarea style={{ border: task.descriptionError ? '2px red solid' : '' }} name="description" value={task.description} onChange={handleChange} className="col-12" type="text"></textarea>
+                    <textarea style={{ border: useLocalStorage.descriptionError ? '2px red solid' : '' }} name="description" value={task.description} onChange={handleChange} className="col-12" type="text"></textarea>
                 </div>
                 <div className="row-form row">
                     <div className="form-group2 col-6">
                         <label htmlFor="assignedTo-input">Assigned To</label>
-                        <input style={{ border: task.assignedToError ? '2px red solid' : '' }} name="assignedTo" value={task.assignedTo} onChange={handleChange} className="col-12" id="assignedTo-input" />
+                        <input style={{ border: useLocalStorage.assignedToError ? '2px red solid' : '' }} name="assignedTo" value={task.assignedTo} onChange={handleChange} className="col-12" id="assignedTo-input" />
                     </div>
                     <div className="form-group2 col-6">
                         <label htmlFor="date-input">Date</label>

@@ -2,8 +2,6 @@ import React from 'react';
 // import { ListGroup } from 'react-bootstrap';
 import { Button, Modal, ListGroup } from 'react-bootstrap';
 import './Item.css';
-import App from '../App/App';
-import TaskList from '../TaskManager/TaskManger';
 
 
 class Item extends React.Component {

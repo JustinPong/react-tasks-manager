@@ -27,3 +27,7 @@ body {
   .title {
       letter-spacing: 5px;
   }
+
+  .top-bar{
+    justify-content: space-between;
+  }
