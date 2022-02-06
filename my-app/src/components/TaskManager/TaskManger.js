@@ -12,9 +12,10 @@ async function fetchTask(setTask) {
 }
 
 
+
 function TaskManager(props) {
 
-    const [task, setTask, save, load] = useLocalStorage ({
+    const [task, setTask] = useLocalStorage ({
         saved: localStorage.getItem("task"),
         id: shortid.generate(),
         name: '',
@@ -30,7 +31,7 @@ function TaskManager(props) {
         fetchTask(setTask)
     }, [])
 
-    // // Create the save method
+    // Create the save method
     // save(() => {
     //     // Create a JSON string of the tasks
     //     const taskJson = JSON.stringify(task);

@@ -17,6 +17,9 @@ body {
     border: 2px;
     font-family: Tahoma, Arial, sans-serif;
     color: #0b0c0c;
+    padding: 0 150px;
+    padding-left: 30px;
+    padding-right: 30px;
     /* letter-spacing: 30px; */
 }
 
