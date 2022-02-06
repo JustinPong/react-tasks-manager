@@ -14,7 +14,8 @@ async function fetchTask(setTask) {
 
 function TaskManager(props) {
 
-    const [task, setTask] = useState ({
+    const [task, setTask, save, load] = useLocalStorage ({
+        saved: localStorage.getItem("task"),
         id: shortid.generate(),
         name: '',
         description: '',
@@ -28,6 +29,43 @@ function TaskManager(props) {
     useEffect(() => {
         fetchTask(setTask)
     }, [])
+
+    // // Create the save method
+    // save(() => {
+    //     // Create a JSON string of the tasks
+    //     const taskJson = JSON.stringify(task);
+
+    //     // Store the JSON string in localStorage
+    //     localStorage.setItem('tasks', taskJson);
+
+    //     // Convert the currentId to a string;
+    //     const currentId = String(task.currentId);
+
+    //     // Store the currentId in localStorage
+    //     localStorage.setItem('currentId', currentId);
+    // })
+
+    // // Create the load method
+    // load(() => {
+    //     // Check if any tasks are saved in localStorage
+    //     if (localStorage.getItem('task')) {
+    //         // Get the JSON string of tasks in localStorage
+    //         const taskJson = localStorage.getItem('task');
+
+    //         // Convert it to an array and store it in our TaskManager
+    //         task = JSON.parse(taskJson);
+    //     }
+
+    //     // Check if the currentId is saved in localStorage
+    //     if (localStorage.getItem('currentId')) {
+    //         // Get the currentId string in localStorage
+    //         const currentId = localStorage.getItem('currentId');
+
+    //         // Convert the currentId to a number and store it in our TaskManager
+    //         task.currentId = Number(currentId);
+    //     }
+    // })
+
 
 
     //system past event into event handling function as first input, 
